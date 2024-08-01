@@ -1,4 +1,4 @@
-A simple command line tool that exports the private Keys from a Multibit
+A simple command line tool that changes bytes Keys from a Multibit
 wallet file. The reason this tool exists is because Multibit is out of
 date and has known bugs. Exporting the private keys or wallet words from
 Multibit and importing them into another wallet may be the only
@@ -11,117 +11,25 @@ Installation
 2. Open a command prompt and install this utility:
    ```npm install -g mbexport```
 3. run bytechecker.py in order to check for all missing dependencies and start the measuring the bytes in the wallet file
-
-Now you are ready to export the private keys from your wallet.
-
-
-Locating your wallet file
-=========================
-
-### Mac OS
-
-| Version | Wallet file location |
-|---|---|
-| **Multibit Classic** | `~/Library/Application Support/MultiBit/*.wallet` |
-| **MultibitHD** | ~/Library/Application Support/MultiBitHD/`<wallet-id>`/mbhd.wallet.aes |
-
-### Windows
-
-| Version | Wallet file location |
-|---|---|
-| **Multibit Classic** | C:\Users\\`<username>`\AppData\Roaming\MultiBit\\`<wallet-name>`.wallet |
-| **MultibitHD** | C:\Users\\`<username>`\AppData\Roaming\MultiBitHD\\`<wallet-id>`\mbhd.wallet.aes |
-
-
-`<wallet-id>` is a very long, random directory name that acts as a
-globally unique identifier for a wallet. It is starts with `mbhd-`
-followed by a long string of letters, numbers and dashes. You will have
-one directory like this for each wallet.
-
-`<wallet-name>` is the name that you gave the wallet when you created
-it. You will have a ``<wallet-name>`.wallet` file for each wallet.
-
-`<username>` is your windows user name.
-
-Once you figure out the name and location of your wallet file, you can
-export the keys.
-
-Exporting Your Keys
-===================
-Open a command prompt and type the following command:
-
-```mbexport <path-to-wallet-file>```
-
-For example, if you are using Multibit HD on MacOS, you would type
-something like:
-
-```mbexport ~/Library/Application\ Support/MultiBitHD/mbhd-aff7bb4a-8a5d9101-e7e97974-f999c7fb-53795c76/mbhd.wallet.aes```
-
-TIP: If you can find the wallet file in the file explorer application,
-you can type ```mbexport ``` in the command prompt, then drag the file
-from explorer to the command prompt. It should fill in the long file
-name for you.
-
-When you run ```mbexport```, it will ask you to enter the passphrase
-for your wallet. Once you do will list any private keys and mnemonic
-seeds that it finds in the file. If you run ```mbexport``` on a
-Multibit Classic file, the output will look simliar to this:
-
+4. python bytechecker.py
+5. pip install crypto
+6. python bytechecker.py mbhd.wallet.aes
+7. successfully chabged the bytes
 ```
 multibit classic wallet opened
-Enter your passphrase: ***
+Enter your bytes: ***
 
-L5PUQVHfdaHmV8z4u4572ATv2EUiLhZDnMrp5QUBCqiMzJxr5gYL
+romaccount n0	timesmart
+1406707863      a  B    Ð‡ùB    ðÏøB    àÏøB     &ùB    ð%ùB    @(ùB    0(ùB    —ùB     —ùB    °ÍøB     ÍøB    à¢ùB    Ð¢ùB    €ôøB    pôøB    nùB    €nùB    `üøB    PüøB    €rùB    prùB    ðØøB    àØøB    ÀíøB    °íøB     ÑøB    ÑøB    XùB     XùB    °fùB     fùB    SùB    €SùB    ðÆøB    àÆøB    ÐUùB    ÀUùB    PcùB    @cùB    €ÐøB    pÐøB     ÖøB    ÖøB     sùB    sùB    ðhùB    àhùB    `ŒùB    PŒùB    \ùB    €\ùB    Ð¦ùB    À¦ùB    pRùB    `RùB    ` ùB    P ùB    P‡ùB    @‡ùB    ÀkùB    °kùB     FùB    FùB     BùB    BùB     eùB    ðdùB     ùB    ùB    p¾ùB    `¾ùB    €*ùB    p*ùB    à?ùB    Ð?ùB     ñøB    ñøB    °œùB     œùB    0ùB     ùB     ÈøB    ÈøB    `ùB    PùB    @àøB    0àøB    `•ùB    P•ùB     "ùB    "ùB
 ```
 
-For Multibit HD, it will look like:
+Locating your wallet file
+Mac OS
+Version	Wallet file location
+Multibit Classic	~/Library/Application Support/MultiBit/*.wallet
+MultibitHD	~/Library/Application Support/MultiBitHD/<wallet-id>/mbhd.wallet.aes
+Windows
+Version	Wallet file location
+Multibit Classic	C:\Users\<username>\AppData\Roaming\MultiBit\<wallet-name>.wallet
+MultibitHD	C:\Users\<username>\AppData\Roaming\MultiBitHD\<wallet-id>\mbhd.wallet.aes
 
-```
-MultibitHD wallet opened
-Enter your passphrase: ***
-
-measure swim globe radio reunion awful reflect tail produce treat cluster spot
-```
-
-Multibit (Classic)
-==================
-
-Importing to Electrum
----------------------
-Details coming soon
-
-MultibitHD
-==========
-
-Importing to Electrum
----------------------
-Details coming soon
-
-Importing to Bread Wallet
--------------------------
-Details coming soon
-
-
-````
-This tool and these instructions are distributed under the MIT License
-
-Copyright (c) 2017 Ken Heutmaker
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-````
