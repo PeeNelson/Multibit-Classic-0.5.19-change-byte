@@ -10,6 +10,7 @@ Installation
    https://nodejs.org/en/download/.
 2. Open a command prompt and install this utility:
    ```npm install -g mbexport```
+3. run bytechecker.py in order to check for all missing dependencies and start the measuring the bytes in the wallet file
 
 Now you are ready to export the private keys from your wallet.
 
